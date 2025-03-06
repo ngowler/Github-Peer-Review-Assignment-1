@@ -2,6 +2,7 @@ import os
 import pymysql
 from urllib.request import urlopen
 
+#D.S
 # QWSAP A05: Security Misconfiguration
 # Hard coded credentials, possible fix would be to use environmental variable.
 db_config = {
@@ -10,6 +11,7 @@ db_config = {
     'password': 'secret123'
 }
 
+# D.S
 # OWSAP A03: Injection
 # No validation is performed on user input.
 def get_user_input():
@@ -24,6 +26,7 @@ def get_data():
     data = urlopen(url).read().decode()
     return data
 
+# D.S
 # OWSAP A03: Injection
 # The String query uses untrusted data which can allow SQL injection.
 def save_to_db(data):
