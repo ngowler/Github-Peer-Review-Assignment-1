@@ -17,7 +17,7 @@ def get_user_input():
     return user_input
 
 
-# OWASP A03: Injection
+# NG - OWASP A03: Injection
 # Sends the request directly to the server making it vulnerable to
 # SQL injection. I've found that using a more secure library would assist in
 # making this function work without this vulnerability.
@@ -25,8 +25,13 @@ def send_email(to, subject, body):
     os.system(f'echo {body} | mail -s "{subject}" {to}')
 
 
-# OWASP A02: Cryptographic Failures
+# NG - OWASP A02: Cryptographic Failures
 # HTTP is used instead of HTTPS which does not encrypt the data.
+# A better solution is to use HTTPS
+
+# NG - OWASP A08: Software and Data Integrity Failures
+# There are no checks to make sure that the data coming in is secure.
+# TO fix this we would want to verify the security of the incoming data.
 def get_data():
     url = 'http://insecure-api.com/get-data'
     data = urlopen(url).read().decode()
